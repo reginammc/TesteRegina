@@ -6,4 +6,4 @@
         xmlns:local="clr-namespace:WPF"  
         xmlns:wpf="clr-namespace:Xamarin.Forms.Platform.WPF;assembly=Xamarin.Forms.Platform.WPF"
         mc:Ignorable="d" 
-        Title="WPF" Height="550" Width="1000"/>
+        Title="WPF" Height="550" Width="1000" WindowState="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" />
