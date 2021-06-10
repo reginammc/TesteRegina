@@ -1,0 +1,156 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:TesteRegina.ViewModel"
+             mc:Ignorable="d"             
+             x:Class="TesteRegina.View.HistoricoView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+   
+        <!-- implicit style -->
+        <Style TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" 	 Value="CenterAndExpand" />
+            <Setter Property="FontSize" 		 Value="11" />
+        </Style>
+    </ResourceDictionary>
+        </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:HistoricoViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="0" Padding="0" RowSpacing="0" BackgroundColor="#FF787575">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" VerticalOptions="CenterAndExpand">
+                    <Label Text="Histórico" HorizontalOptions="StartAndExpand"
+                    FontFamily="Tahoma" FontSize="14" Margin="5" BackgroundColor="#FF787575"
+                    TextColor="#FFFFFF"></Label>
+                </Grid>
+
+                <Grid Grid.Row="1" BackgroundColor="#FF787575">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="ORDENS EM ABERTO" Grid.Column="0" FontFamily="Tahoma" FontSize="14" 
+                     Margin="5" HorizontalOptions="Start" BackgroundColor="#FF787575" TextColor="#FFFFFF"/>
+                    
+                    <Label Text="TOTAL QUANTIDADE:" Grid.Column="1" FontFamily="Tahoma" 
+                     FontSize="14" Margin="5" BackgroundColor="#FF787575" TextColor="#FFFFFF"/>
+
+                    <Label x:Name="lbQtde" Text="{Binding Qtde}" Grid.Column="2" FontFamily="Tahoma" 
+                     FontSize="14" Margin="5" BackgroundColor="#FF787575" TextColor="#FFFFFF"/>
+
+                    <Label Text="TOTAL DISPONÍVEL:" Grid.Column="3" FontFamily="Tahoma" FontSize="14" 
+                     Margin="5" BackgroundColor="#FF787575" TextColor="#FFFFFF"/>
+
+                    <Label x:Name="lbQtdeDisponivel" Text="0" Grid.Column="4" FontFamily="Tahoma" FontSize="14" 
+                     Margin="5" BackgroundColor="#FF787575" TextColor="#FFFFFF"/>
+                </Grid>
+
+                <Grid Grid.Row="2" BackgroundColor="#CACACA">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="DATA E HORA" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="ASSESSOR" Grid.Row="0" Grid.Column="1"  />
+                    <Label Text="CONTA" Grid.Row="0" Grid.Column="2"  />
+                    <Label Text="ATIVO" Grid.Row="0" Grid.Column="3"  />
+                    <Label Text="TIPO" Grid.Row="0" Grid.Column="4"  />
+                    <Label Text="QTD" Grid.Row="0" Grid.Column="5"  />
+                    <Label Text="QTD. APARENTE" Grid.Row="0" Grid.Column="6"  />
+                    <Label Text="QTD. DISP" Grid.Row="0" Grid.Column="7"  />
+                    <Label Text="QTD. CANCEL" Grid.Row="0" Grid.Column="8"  />
+                    <Label Text="QTD. EXEC" Grid.Row="0" Grid.Column="9"  />
+                    <Label Text="VALOR" Grid.Row="0" Grid.Column="10"  />
+                    <Label Text="VALOR DISP" Grid.Row="0" Grid.Column="11"  />
+                    <Label Text="OBJETIVO" Grid.Row="0" Grid.Column="12"  />
+                    <Label Text="OBJ. DISP" Grid.Row="0" Grid.Column="13"  />
+                    <Label Text="REDUÇÃO" Grid.Row="0" Grid.Column="14"  />
+                </Grid>
+
+                <ListView IsPullToRefreshEnabled="True" x:Name="lsOrdens" Grid.Row="3" 
+                              ItemsSource="{Binding ListaOrdens}" Margin="4" Background="white">
+                    <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid VerticalOptions="CenterAndExpand" ColumnSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"></RowDefinition>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Data}" Grid.Row="0" Grid.Column="0"  />
+                                    <Label Text="{Binding Assessor}" Grid.Row="0" Grid.Column="1"  />
+                                    <Label Text="{Binding Conta}" Grid.Row="0" Grid.Column="2"  />
+                                    <Label Text="{Binding Ativo}" Grid.Row="0" Grid.Column="3"  />
+                                    <Label Text="{Binding Tipo}" Grid.Row="0" Grid.Column="4"  />
+
+                                    <Label Text="{Binding Quantidade}" Grid.Row="0" Grid.Column="5"  />
+                                    <Label Text="{Binding QtdAparente}" Grid.Row="0" Grid.Column="6"  />
+                                    <Label Text="{Binding QtdDisp}" Grid.Row="0" Grid.Column="7"  />
+                                    <Label Text="{Binding QtdCanc}" Grid.Row="0" Grid.Column="8"  />
+                                    <Label Text="{Binding QtdExec}" Grid.Row="0" Grid.Column="9"  />
+                                    <Label Text="{Binding Valor}" Grid.Row="0" Grid.Column="10"  />
+                                    <Label Text="{Binding ValorDisp}" Grid.Row="0" Grid.Column="11"  />
+                                    <Label Text="{Binding Objetivo}" Grid.Row="0" Grid.Column="12"  />
+                                    <Label Text="{Binding ObjDisp}" Grid.Row="0" Grid.Column="13"  />
+                                    <Label Text="{Binding Reducao}" Grid.Row="0" Grid.Column="14"  />
+
+                                </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
