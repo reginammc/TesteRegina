@@ -1,0 +1,16 @@
+Análise realizada rodando a aplicação até um limite de 10 mil inserções na coleção. 
+
+Tempo de execução:  
+
+UWP: 1:30
+WPF: 1:39
+
+Consumo de memória: 
+
+UWP: 617MB
+WPF: 1GB. 
+No WPF acontecem gargalos de memória onde em alguns momentos fica impossível rolar a tela ou fechá-la. 
+
+Consumo de CPU: 
+
+UWP apresentou desempenho melhor com relação ao uso da CPU. 
